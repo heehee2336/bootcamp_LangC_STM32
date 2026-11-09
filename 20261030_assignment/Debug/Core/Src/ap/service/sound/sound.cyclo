@@ -1,0 +1,6 @@
+../Core/Src/ap/service/sound/sound.c:124:6:sound_init	1
+../Core/Src/ap/service/sound/sound.c:128:6:sound_power	1
+../Core/Src/ap/service/sound/sound.c:141:6:sound_date	1
+../Core/Src/ap/service/sound/sound.c:154:6:sound_hcsr04	1
+../Core/Src/ap/service/sound/sound.c:165:6:sound_dht11	1
+../Core/Src/ap/service/sound/sound.c:175:6:sound_SW	1

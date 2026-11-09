@@ -1,0 +1,6 @@
+../Core/Src/driver/HCSR04/HCSR04.c:40:6:HCSR04_init	24	static
+../Core/Src/driver/HCSR04/HCSR04.c:56:17:HCSR04_start	8	static
+../Core/Src/driver/HCSR04/HCSR04.c:73:13:echo_is_high	8	static
+../Core/Src/driver/HCSR04/HCSR04.c:78:6:HCSR04_echoISR	16	static
+../Core/Src/driver/HCSR04/HCSR04.c:93:17:timer_diff	24	static
+../Core/Src/driver/HCSR04/HCSR04.c:105:17:HCSR04_getResult	24	static

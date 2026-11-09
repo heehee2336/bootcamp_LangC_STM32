@@ -1,0 +1,6 @@
+../Core/Src/ap/TimeClock/TimeClock.c:22:6:TimeClock_init	1
+../Core/Src/ap/TimeClock/TimeClock.c:35:14:TimeClock_getTimeData	1
+../Core/Src/ap/TimeClock/TimeClock.c:42:13:TimeClock_getDateData	1
+../Core/Src/ap/TimeClock/TimeClock.c:51:13:TimeClock_incMSec	5
+../Core/Src/ap/TimeClock/TimeClock.c:77:6:TimeClock_ISR	1
+../Core/Src/ap/TimeClock/TimeClock.c:82:6:TimeClock_task	3

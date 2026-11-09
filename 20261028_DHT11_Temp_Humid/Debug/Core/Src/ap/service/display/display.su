@@ -1,0 +1,2 @@
+../Core/Src/ap/service/display/display.c:17:6:display_init	40	static
+../Core/Src/ap/service/display/display.c:26:6:display_task	56	static

@@ -1,0 +1,5 @@
+../Core/Src/common/delay/delay.c:27:6:delay_init	4	static
+../Core/Src/common/delay/delay.c:39:6:delay_us	24	static
+../Core/Src/common/delay/delay.c:49:6:delay_ms	16	static
+../Core/Src/common/delay/delay.c:56:10:delay_elapsed_us	16	static
+../Core/Src/common/delay/delay.c:61:10:delay_get_cycle	8	static

@@ -1,0 +1,47 @@
+2026-11-03 10:31:35,600 [INFO] Activator:177 - 
+
+
+2026-11-03 10:31:35,605 [INFO] Activator:178 - !SESSION log4j initialized
+2026-11-03 10:31:38,284 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
+2026-11-03 13:59:31,241 [INFO] Activator:177 - 
+
+
+2026-11-03 13:59:31,243 [INFO] Activator:178 - !SESSION log4j initialized
+2026-11-03 13:59:35,148 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
+2026-11-03 16:01:04,731 [INFO] Activator:177 - 
+
+
+2026-11-03 16:01:04,734 [INFO] Activator:178 - !SESSION log4j initialized
+2026-11-03 16:01:07,367 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
+2026-11-03 16:01:42,340 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] [log;+0900 2026.11.03 16:01:42:334;ERROR;org.eclipse.ecf.identity;org.eclipse.core.runtime.Status[plugin=org.eclipse.ecf.identity;code=4;message=Namespace cannot be null;severity4;exception=org.eclipse.ecf.core.identity.IDCreateException: Namespace cannot be null;children=[]]]
+2026-11-03 16:01:42,344 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] org.eclipse.ecf.core.identity.IDCreateException: Namespace cannot be null
+2026-11-03 16:01:42,346 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at org.eclipse.ecf.core.identity.IDFactory.logAndThrow(IDFactory.java:174)
+2026-11-03 16:01:42,348 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at org.eclipse.ecf.core.identity.IDFactory.createID(IDFactory.java:190)
+2026-11-03 16:01:42,351 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at org.eclipse.ecf.filetransfer.identity.FileIDFactory.createFileID(FileIDFactory.java:120)
+2026-11-03 16:01:42,354 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at org.eclipse.ecf.filetransfer.identity.FileIDFactory.createFileID(FileIDFactory.java:78)
+2026-11-03 16:01:42,356 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at org.eclipse.equinox.internal.p2.transport.ecf.FileReader.sendRetrieveRequest(FileReader.java:469)
+2026-11-03 16:01:42,357 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at org.eclipse.equinox.internal.p2.transport.ecf.FileReader.readInto(FileReader.java:397)
+2026-11-03 16:01:42,358 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at org.eclipse.equinox.internal.p2.transport.ecf.RepositoryTransport.download(RepositoryTransport.java:137)
+2026-11-03 16:01:42,362 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at org.eclipse.equinox.internal.p2.repository.helpers.AbstractRepositoryManager.handleRemoteIndexFile(AbstractRepositoryManager.java:801)
+2026-11-03 16:01:42,366 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at org.eclipse.equinox.internal.p2.repository.helpers.AbstractRepositoryManager.loadIndexFile(AbstractRepositoryManager.java:795)
+2026-11-03 16:01:42,369 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at org.eclipse.equinox.internal.p2.repository.helpers.AbstractRepositoryManager.loadRepository(AbstractRepositoryManager.java:731)
+2026-11-03 16:01:42,371 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at org.eclipse.equinox.internal.p2.metadata.repository.MetadataRepositoryManager.loadRepository(MetadataRepositoryManager.java:107)
+2026-11-03 16:01:42,373 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at org.eclipse.equinox.p2.repository.metadata.IMetadataRepositoryManager.loadRepository(IMetadataRepositoryManager.java:101)
+2026-11-03 16:01:42,375 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at org.eclipse.equinox.internal.p2.updatechecker.UpdateChecker.getAvailableRepositories(UpdateChecker.java:168)
+2026-11-03 16:01:42,378 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at org.eclipse.equinox.internal.p2.updatechecker.UpdateChecker.checkForUpdates(UpdateChecker.java:146)
+2026-11-03 16:01:42,381 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at org.eclipse.equinox.internal.p2.updatechecker.UpdateChecker$UpdateCheckThread.run(UpdateChecker.java:83)
+2026-11-03 16:02:00,743 [INFO] Activator:177 - 
+
+
+2026-11-03 16:02:00,745 [INFO] Activator:178 - !SESSION log4j initialized
+2026-11-03 16:02:03,393 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
+2026-11-03 16:03:48,113 [INFO] Activator:177 - 
+
+
+2026-11-03 16:03:48,116 [INFO] Activator:178 - !SESSION log4j initialized
+2026-11-03 16:03:50,560 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
+2026-11-03 16:12:35,767 [INFO] Activator:177 - 
+
+
+2026-11-03 16:12:35,769 [INFO] Activator:178 - !SESSION log4j initialized
+2026-11-03 16:12:40,179 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 

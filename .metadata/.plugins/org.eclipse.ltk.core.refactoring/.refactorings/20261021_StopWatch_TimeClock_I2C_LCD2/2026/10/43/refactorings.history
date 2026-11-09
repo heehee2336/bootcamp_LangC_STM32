@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;20261021_StopWatch_TimeClock_I2C_LCD2/Core/Src/driver/DS3231&apos; to &apos;ds3231&apos;" description="Rename resource &apos;DS3231&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="Core/Src/driver/DS3231" name="ds3231" stamp="1792566037437" updateReferences="true"/>
+</session>

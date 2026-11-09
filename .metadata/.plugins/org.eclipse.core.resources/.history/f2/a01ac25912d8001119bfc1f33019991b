@@ -1,0 +1,13 @@
+/*
+ * uart_protocol.h
+ *
+ *  Created on: 2026. 11. 4.
+ *      Author: kccistc
+ */
+
+#ifndef SRC_DRIVER_UART_PROTOCOL_UART_PROTOCOL_H_
+#define SRC_DRIVER_UART_PROTOCOL_UART_PROTOCOL_H_
+
+
+
+#endif /* SRC_DRIVER_UART_PROTOCOL_UART_PROTOCOL_H_ */

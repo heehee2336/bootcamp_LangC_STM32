@@ -1,0 +1,52 @@
+10/15과제 HAL driver를 사용한 MX_GPIO_Init() 함수 분석하기
+
+
+static void MX_GPIO_Init(void)
+{
+  GPIO_InitTypeDef GPIO_InitStruct = {0};
+
+  /* GPIO Ports Clock Enable */
+  __HAL_RCC_GPIOH_CLK_ENABLE(); 						// 핀을 사용하기 위해 H ~ C 각 핀에 CLK을 인가해주는 함수이다. 우리가 보드 설정에서 설정한 (RCC) 값의 CLK이 인가된다.
+  __HAL_RCC_GPIOA_CLK_ENABLE();
+  __HAL_RCC_GPIOB_CLK_ENABLE();
+  __HAL_RCC_GPIOC_CLK_ENABLE();
+
+// 여러 핀을 한꺼번에 RESEST 상태로 지정하는 코드이다. 
+// HAL_GPIO_WritePin(GPIOx, GPIO_PIN_x|GPIO_PIN_x|..., GPIO_state상태) 의 형태로 정의한다.
+
+  /* Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5|GPIO_PIN_6|GPIO_PIN_7|GPIO_PIN_8
+                          |GPIO_PIN_9|GPIO_PIN_10, GPIO_PIN_RESET);		 // A5 ~ A10 핀을 RESET으로 설정하는 코드이다.
+
+  /* Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(GPIOB, GPIO_PIN_10|GPIO_PIN_3|GPIO_PIN_4|GPIO_PIN_5
+                          |GPIO_PIN_6, GPIO_PIN_RESET);				 // B5 ~ B10 핀을 RESET으로 설정하는 코드이다.
+
+  /* Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(GPIOC, GPIO_PIN_7, GPIO_PIN_RESET); 		// C5 ~ C10 핀을 RESET으로 설정하는 코드이다.
+
+// 위에서 초기 상태를 지정한 핀들의 상세한 상태를 결정한다.
+  /* Configure GPIO pins : PA5 PA6 PA7 PA8 PA9 PA10 */
+  GPIO_InitStruct.Pin = GPIO_PIN_5|GPIO_PIN_6|GPIO_PIN_7|GPIO_PIN_8
+                          |GPIO_PIN_9|GPIO_PIN_10;			 // 여러 핀을 한꺼번에 설정하기 위해 구조체를 init 한다. 
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP; 	// 핀의 입/출력 모드를 설정한다. 이때, PP(push-pull)로 핀의 전압을 전원과 0V로 밀어준다. 
+  GPIO_InitStruct.Pull = GPIO_NOPULL;				// 내부 풀업(pull-up)이나 풀다운(pull-down) 저항 사용 여부를 결정한다. NOPULL 이므로 사용하지 않는 다는 의미이다. 위에서 이미 칩 내부의 PP회로를 사용하여 pull 해주어 쓸 필요가 없다.
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;		// 핀의 주파수(속도)를 결정한다. 우리가 사용할 LED나 버튼 입력은 저주파를 사용하기 때문에 LOW로 선언한다. 
+  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);			// 위에서 선언한 구조체 핀(PA5 PA6 PA7 PA8 PA9 PA10)에 위의 내용을 init 한다. 
+
+  /* Configure GPIO pins : PB10 PB3 PB4 PB5 PB6 */
+  GPIO_InitStruct.Pin = GPIO_PIN_10|GPIO_PIN_3|GPIO_PIN_4|GPIO_PIN_5
+                          |GPIO_PIN_6;					// 여러 핀을 한꺼번에 설정하기 위해 구조체를 init 한다.
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;		// 핀의 입/출력 모드를 설정한다. 이때, PP(push-pull)로 핀의 전압을 전원과 0V로 밀어준다.
+  GPIO_InitStruct.Pull = GPIO_NOPULL;				// 내부 풀업(pull-up)이나 풀다운(pull-down) 저항 사용 여부를 결정한다. NOPULL 이므로 사용하지 않는 다는 의미이다. 위에서 이미 칩 내부의 PP회로를 사용하여 pull 해주어 쓸 필요가 없다.						
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;		// 핀의 주파수(속도)를 결정한다. 우리가 사용할 LED나 버튼 입력은 저주파를 사용하기 때문에 LOW로 선언한다.
+  HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);			// 위에서 선언한 구조체 핀(PB10 PB3 PB4 PB5 PB6)에 위의 내용을 init 한다.
+
+  /* Configure GPIO pin : PC7 */
+  GPIO_InitStruct.Pin = GPIO_PIN_7;				// 여러 핀을 한꺼번에 설정하기 위해 구조체이지만 C7핀만 사용하므로 하나만 선언한다.
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;		// 핀의 입/출력 모드를 설정한다. 이때, PP(push-pull)로 핀의 전압을 전원과 0V로 밀어준다.
+  GPIO_InitStruct.Pull = GPIO_NOPULL;				// 내부 풀업(pull-up)이나 풀다운(pull-down) 저항 사용 여부를 결정한다. NOPULL 이므로 사용하지 않는 다는 의미이다. 위에서 이미 칩 내부의 PP회로를 사용하여 pull 해주어 쓸 필요가 없다.
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;		// 핀의 주파수(속도)를 결정한다. 우리가 사용할 LED나 버튼 입력은 저주파를 사용하기 때문에 LOW로 선언한다.
+  HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);			// 위에서 선언한 구조체 핀(PC7)에 위의 내용을 init 한다.
+
+}

@@ -1,0 +1,25 @@
+09:03:37 **** Incremental Build of configuration Debug for project 20261019_Stopwatch_Watch ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/driver/fnd/fnd.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/driver/fnd/fnd.d" -MT"Core/Src/driver/fnd/fnd.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/driver/fnd/fnd.o"
+arm-none-eabi-gcc "../Core/Src/ap/StopWatch/StopWatch.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/ap/StopWatch/StopWatch.d" -MT"Core/Src/ap/StopWatch/StopWatch.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/ap/StopWatch/StopWatch.o"
+arm-none-eabi-gcc "../Core/Src/ap/ap_main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/ap/ap_main.d" -MT"Core/Src/ap/ap_main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/ap/ap_main.o"
+../Core/Src/ap/StopWatch/StopWatch.c:57:13: warning: 'StopWatch_setCounter' defined but not used [-Wunused-function]
+   57 | static void StopWatch_setCounter(uint16_t c)
+      |             ^~~~~~~~~~~~~~~~~~~~
+../Core/Src/ap/StopWatch/StopWatch.c:42:20: warning: 'StopWatch_getState' defined but not used [-Wunused-function]
+   42 | static stopWatch_t StopWatch_getState(void)
+      |                    ^~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "20261019_Stopwatch_Watch.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\LeeSH\stm\20261019_Stopwatch_Watch\STM32F411RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="20261019_Stopwatch_Watch.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 20261019_Stopwatch_Watch.elf
+ 
+arm-none-eabi-size  20261019_Stopwatch_Watch.elf 
+arm-none-eabi-objdump -h -S 20261019_Stopwatch_Watch.elf  > "20261019_Stopwatch_Watch.list"
+   text	   data	    bss	    dec	    hex	filename
+   7676	     12	   1716	   9404	   24bc	20261019_Stopwatch_Watch.elf
+Finished building: default.size.stdout
+ 
+Finished building: 20261019_Stopwatch_Watch.list
+ 
+
+09:03:37 Build Finished. 0 errors, 2 warnings. (took 512ms)
+

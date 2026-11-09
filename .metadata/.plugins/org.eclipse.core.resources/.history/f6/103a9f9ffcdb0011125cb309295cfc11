@@ -1,0 +1,19 @@
+/*
+ * led.c
+ *
+ *  Created on: 2026. 11. 9.
+ *      Author: kccistc
+ */
+
+
+#include "led.h"
+#include "stm32f4xx_hal.h"
+
+#define LED_EMERGENCY		GPIOC
+#define LED_EMERGENCY_PIN 	GPIO_PIN_4
+#define LED_FLOOR_1			GPIOB
+#define LED_FLOOR_1_PIN 	GPIO_PIN_13
+#define LED_FLOOR_2			GPIOB
+#define LED_FLOOR_2_PIN 	GPIO_PIN_14
+#define LED_FLOOR_3			GPIOB
+#define LED_FLOOR_3_PIN 	GPIO_PIN_15

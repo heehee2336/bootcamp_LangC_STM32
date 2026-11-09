@@ -1,0 +1,14 @@
+15:24:55 **** Incremental Build of configuration Debug for project project_elevator ****
+make -j16 all 
+arm-none-eabi-size  project_elevator.elf 
+   text	   data	    bss	    dec	    hex	filename
+  32116	    144	   2688	  34948	   8884	project_elevator.elf
+Finished building: default.size.stdout
+ 
+15:24:57 **** Incremental Build of configuration Debug for project project_elevator ****
+make -j16 all 
+arm-none-eabi-size  project_elevator.elf 
+   text	   data	    bss	    dec	    hex	filename
+  32116	    144	   2688	  34948	   8884	project_elevator.elf
+Finished building: default.size.stdout
+ 

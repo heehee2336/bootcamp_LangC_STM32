@@ -1,0 +1,3 @@
+../Core/Src/driver/StepMotor/StepMotor.c:17:13:StepMotor_writePattern	2
+../Core/Src/driver/StepMotor/StepMotor.c:25:6:StepMotor_stepPhase	2
+../Core/Src/driver/StepMotor/StepMotor.c:35:6:StepMotor_release	1

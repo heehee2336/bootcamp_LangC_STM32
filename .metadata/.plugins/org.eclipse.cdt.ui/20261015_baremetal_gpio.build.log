@@ -1,0 +1,10 @@
+11:44:59 **** Incremental Build of configuration Debug for project 20261015_baremetal_gpio ****
+make -j16 all 
+arm-none-eabi-size  20261015_baremetal_gpio.elf 
+   text	   data	    bss	    dec	    hex	filename
+   1212	      4	   1572	   2788	    ae4	20261015_baremetal_gpio.elf
+Finished building: default.size.stdout
+ 
+
+11:44:59 Build Finished. 0 errors, 0 warnings. (took 203ms)
+

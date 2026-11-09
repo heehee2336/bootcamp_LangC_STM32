@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="java.lang.Class">
+		<item key="replaceBarOpen" value="false"/>
+		<item key="selection" value="/* USER CODE BEGIN Header */"/>
+		<list key="findhistory">
+			<item value="elevator_blockingMo"/>
+			<item value="stepMotor"/>
+			<item value="floor_1"/>
+			<item value="b"/>
+			<item value="hal_uart_re"/>
+			<item value="hal_uart_rece"/>
+			<item value="SerialReceiverThread"/>
+			<item value="led_err"/>
+			<item value="led_ok"/>
+			<item value="led_"/>
+			<item value="UART_RXCPLTCALLBACK"/>
+			<item value="uart2_IRQ"/>
+			<item value="str"/>
+			<item value="timeclock"/>
+			<item value="stopwatch_task"/>
+		</list>
+	</section>
+</section>

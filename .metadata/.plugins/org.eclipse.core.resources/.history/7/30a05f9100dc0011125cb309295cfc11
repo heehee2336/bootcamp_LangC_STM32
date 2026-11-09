@@ -1,0 +1,33 @@
+/*
+ * led.c
+ *
+ *  Created on: 2026. 11. 9.
+ *      Author: kccistc
+ */
+
+
+#include "led.h"
+
+void led_init(led_t *led, GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin)
+{
+	led->GPIOx = GPIOx;
+	led->GPIO_Pin = GPIO_Pin;
+}
+
+void led_allOff(void)
+{
+	HAL_GPIO_WritePin(LED_EMERGENCY, LED_EMERGENCY_PIN, GPIO_PIN_RESET);
+	HAL_GPIO_WritePin(LED_FLOOR_1, LED_FLOOR_1_PIN, GPIO_PIN_RESET);
+	HAL_GPIO_WritePin(LED_FLOOR_2, LED_FLOOR_2_PIN, GPIO_PIN_RESET);
+	HAL_GPIO_WritePin(LED_FLOOR_3, LED_FLOOR_3_PIN, GPIO_PIN_RESET);
+}
+
+void led_emergencyState(void)
+{
+	HAL_GPIO_WritePin(LED_EMERGENCY, LED_EMERGENCY_PIN, GPIO_PIN_SET);
+}
+
+void led_normalState(led_t *floor){
+
+	HAL_GPIO_WritePin(floor->GPIO_Pin, floor->GPIO_Pin,GPIO_PIN_SET);
+}

@@ -1,0 +1,4 @@
+../Core/Src/ap/service/display/display.c:17:6:display_init	1
+../Core/Src/ap/service/display/display.c:25:6:display_THTask	2
+../Core/Src/ap/service/display/display.c:40:6:display_distanceTask	2
+../Core/Src/ap/service/display/display.c:49:6:display_task	1

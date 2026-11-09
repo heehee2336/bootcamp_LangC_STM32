@@ -1,0 +1,354 @@
+/*
+ * elevator.c
+ *
+ *  Created on: 2026. 11. 5.
+ *      Author: kccistc
+ */
+
+
+#include "elevator.h"
+#include "../../../driver/lcd/lcd.h"
+#include "../../../driver/button/button.h"
+#include "../../../driver/joyStick/joyStick.h"
+#include "../elevatorMoving/elevatorMoving.h"
+#include "../display/display.h"
+#include "../temp_humid/temp_humid.h"
+#include "../distance/distance.h"
+#include "../sound/sound.h"
+#include "../led/led.h"
+#include <stdbool.h>
+
+typedef enum {
+	MANUAL_MODE,
+	ESCAPE_EMERGENCY
+} elevator_emergency_state_t;
+
+static uint16_t current_floor;
+static uint16_t target_floor;
+static elevator_state_t elevator_state;
+static elevator_emergency_state_t elevator_emergency_state;
+static elevator_mode_t elevator_mode;
+
+button_t btn_floor_1;
+button_t btn_floor_2;
+button_t btn_floor_3;
+
+led_t LED_EME;
+led_t LED_1;
+led_t LED_2;
+led_t LED_3;
+
+static bool is_target_floor_arrive[3] = {false};
+static uint16_t elevator_blockingMotor_CW;
+static uint16_t elevator_blockingMotor_CCW;
+static int16_t uart_target_floor = -1;		// UART로 들어온 층 호출 (-1 = 없음)
+
+#define PC_MOVE_TIMEOUT_MS	300				// PC 수동 조작 명령이 이 시간 동안 안 오면 정지
+static elevator_move_t pc_move = MOVE_CMD_STOP;	// PC에서 온 수동 조작 방향
+static uint32_t pc_move_ms = 0;					// 마지막 PC 수동 조작 명령 시각
+
+static void is_target_floor_Clear(void);
+static void Elevator_setTargetFloor();
+
+void Elevator_init(void){
+
+	current_floor = FLOOR_1;
+	target_floor = FLOOR_1;
+	elevator_state = IDLE;
+	elevator_mode = EMERGENCY;
+	elevator_emergency_state = MANUAL_MODE;
+	elevator_blockingMotor_CW = 0;
+	elevator_blockingMotor_CCW = 0;
+	is_target_floor_Clear();
+	js_init();
+	TH_init();
+	dist_init();
+	disp_init();
+	button_init(&btn_floor_3,GPIOC,GPIO_PIN_3);
+	button_init(&btn_floor_2,GPIOC,GPIO_PIN_1);
+	button_init(&btn_floor_1,GPIOC,GPIO_PIN_0);
+	led_init(&LED_EME, LED_EMERGENCY, LED_EMERGENCY_PIN);
+	led_init(&LED_1, LED_FLOOR_1, LED_FLOOR_1_PIN);
+	led_init(&LED_2, LED_FLOOR_2, LED_FLOOR_2_PIN);
+	led_init(&LED_3, LED_FLOOR_3, LED_FLOOR_3_PIN);
+	Lcd_writeStringXY(0, 1, "HI");
+}
+
+static void Elevator_setTargetFloor() {
+
+
+	target_floor = current_floor;
+
+	if (button_getState(&btn_floor_1) == ACT_RELEASE) {
+		target_floor = FLOOR_1;
+	}
+	else if(button_getState(&btn_floor_2) == ACT_RELEASE){
+		target_floor = FLOOR_2;
+	}
+	else if(button_getState(&btn_floor_3) == ACT_RELEASE){
+		target_floor = FLOOR_3;
+	}
+	else if (uart_target_floor >= 0) {		// 버튼이 없으면 UART 호출 처리
+		target_floor = uart_target_floor;
+	}
+	uart_target_floor = -1;
+
+	if (current_floor < target_floor)
+	{
+		elevator_state = RISING;
+	}
+	else if (current_floor > target_floor)
+	{
+		elevator_state = FALLING;
+	}
+}
+
+void Elevator_ISR(uint16_t floor)
+{
+	is_target_floor_arrive[floor] = true;
+}
+
+static void is_target_floor_Clear(void)
+{
+	is_target_floor_arrive[0] = false;
+	is_target_floor_arrive[1] = false;
+	is_target_floor_arrive[2] = false;
+}
+
+static void Elevator_normal_task(void)
+{
+	switch(elevator_state){
+
+	case IDLE :
+		led_allOff();
+		Elevator_setTargetFloor(&current_floor);
+		break;
+	case RISING :
+		elevatorMoving_setDirCW();
+		elevatorMoving_Run();
+		sound_normal_rising();
+		if (is_target_floor_arrive[target_floor] == true) {
+			current_floor = target_floor;
+			elevator_state = ARRIVE;
+		}
+		break;
+	case FALLING :
+		elevatorMoving_setDirCCW();
+		elevatorMoving_Run();
+		sound_normal_falling();
+		if (is_target_floor_arrive[target_floor] == true) {
+			current_floor = target_floor;
+			elevator_state = ARRIVE;
+		}
+		break;
+	case ARRIVE :
+		is_target_floor_Clear();
+		elevatorMoving_Stop();
+		if (current_floor == FLOOR_1) led_normalState(&LED_EME);
+		elevator_state = IDLE;
+		break;
+	default :
+		elevator_state = IDLE;
+		break;
+	}
+
+	disp_task(elevator_state, current_floor, target_floor);
+}
+
+static void Elevator_manual_operation(void) {
+
+	// PC 수동 조작이 살아 있으면 조이스틱보다 우선
+	if (pc_move != MOVE_CMD_STOP && (HAL_GetTick() - pc_move_ms) > PC_MOVE_TIMEOUT_MS) {
+		pc_move = MOVE_CMD_STOP;	// PC 명령이 끊김 -> 정지 (조이스틱으로 복귀)
+	}
+	if (pc_move == MOVE_CMD_UP) {
+		elevatorMoving_setDirCW();
+		elevatorMoving_Run();
+		return;
+	}
+	if (pc_move == MOVE_CMD_DOWN) {
+		elevatorMoving_setDirCCW();
+		elevatorMoving_Run();
+		return;
+	}
+
+	cordinate_XY js_value;
+	js_getValue(&js_value);
+
+	if (js_value.Y_cord > 60 && elevator_blockingMotor_CW == 0) {
+		elevatorMoving_setDirCW();
+		elevatorMoving_Run();
+		elevator_blockingMotor_CCW = 0;
+	}
+	else if (js_value.Y_cord < 40 && elevator_blockingMotor_CCW == 0) {
+		elevatorMoving_setDirCCW();
+		elevatorMoving_Run();
+		elevator_blockingMotor_CW = 0;
+	}
+	else {
+		elevatorMoving_Stop();
+	}
+	//		static uint32_t prevTime = 0 ;
+	//		static uint16_t countDebug = 0;
+	//		if (HAL_GetTick() - prevTime < 500) {
+	//			return;
+	//		}
+	//		prevTime = HAL_GetTick();
+	//
+	//		char str[30];
+	//		sprintf(str, "y value: %2d, c:%d", js_value.Y_cord, countDebug);
+	//		Lcd_writeStringXY(0,0,str);
+}
+
+uint16_t elevator_emergency;
+
+static void Elevator_checkEmergency(void)
+{
+	dht11_data_t thData;
+	TH_getTempHumid(&thData);
+
+	if (thData.t_int >= 24){
+		elevator_mode = EMERGENCY;
+		disp_enterEmergency();
+	}
+}
+// EMERGENCY 탈출 시작 (1번 버튼 / UART 공통)
+static void Elevator_startEscape(void)
+{
+	pc_move = MOVE_CMD_STOP;
+	is_target_floor_Clear();
+	elevator_blockingMotor_CW = 0;
+	elevator_blockingMotor_CCW = 0;
+	elevator_emergency_state = ESCAPE_EMERGENCY;
+}
+
+static void Elevator_escapeEmergency(void)
+{
+	elevatorMoving_setDirCCW();
+	elevatorMoving_Run();
+	if (is_target_floor_arrive[FLOOR_1] == true) {
+		current_floor = FLOOR_1;
+		target_floor = FLOOR_1;
+		elevator_mode = NORMAL;
+		elevator_state = ARRIVE;
+		elevator_emergency_state = MANUAL_MODE;
+		disp_exitEmergency(current_floor);	// NORMAL 화면(NOW / TEMP) 다시 그리기
+	}
+
+}
+
+
+
+
+static void Elevator_emergency_task(void) {
+
+	disp_emergency();	// 1줄: EMERGENCY 깜빡임, 2줄: 층/구간 + 거리
+	sound_emergency();
+	switch(elevator_emergency_state) {
+	case MANUAL_MODE:
+		Elevator_manual_operation();
+		//		if (distance_get(&distance_cm) == DISTANCE_OK) {
+		//			if (distance_cm >= 15) {
+		//				elevator_emergency_state = BOTTOM;
+		//			}
+		//			else if (distance_cm < 7)
+		//			{
+		//				elevator_emergency_state = TOP;
+		//			}
+		//		}
+
+		if (button_getState(&btn_floor_1) == ACT_RELEASE) {
+			Elevator_startEscape();
+		}
+		break;
+	case ESCAPE_EMERGENCY:
+		Elevator_escapeEmergency();
+		break;
+	default:
+		break;
+	}
+}
+
+
+// ---------------- UART 에서 쓰는 API ----------------
+
+void Elevator_getStatus(elevator_status_t *status)
+{
+	status->mode = (uint8_t)elevator_mode;
+	status->emergency_state = (elevator_emergency_state == ESCAPE_EMERGENCY) ? 1 : 0;
+	status->state = (uint8_t)elevator_state;
+	status->current_floor = (uint8_t)current_floor;
+	status->target_floor = (uint8_t)target_floor;
+}
+
+bool Elevator_requestFloor(uint16_t floor)
+{
+	if (floor > FLOOR_3 || elevator_mode != NORMAL || elevator_state != IDLE) {
+		return false;
+	}
+	uart_target_floor = floor;		// 다음 IDLE 처리(Elevator_setTargetFloor)에서 반영
+	return true;
+}
+
+bool Elevator_requestEmergency(void)
+{
+	if (elevator_mode != NORMAL) {
+		return false;
+	}
+	elevator_mode = EMERGENCY;
+	elevator_emergency_state = MANUAL_MODE;
+	pc_move = MOVE_CMD_STOP;
+	disp_enterEmergency();
+	return true;
+}
+
+bool Elevator_requestManualMove(elevator_move_t move)
+{
+	if (elevator_mode != EMERGENCY || elevator_emergency_state != MANUAL_MODE) {
+		return false;
+	}
+	pc_move = move;
+	pc_move_ms = HAL_GetTick();
+	return true;
+}
+
+bool Elevator_requestEscape(void)
+{
+	if (elevator_mode != EMERGENCY || elevator_emergency_state != MANUAL_MODE) {
+		return false;
+	}
+	Elevator_startEscape();
+	return true;
+}
+
+void Elevator_task(void)
+{
+	switch(elevator_mode) {
+	case NORMAL:
+		Elevator_normal_task();
+		Elevator_checkEmergency();
+		break;
+	case EMERGENCY:
+		Elevator_emergency_task();
+		break;
+	default:
+		break;
+	}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

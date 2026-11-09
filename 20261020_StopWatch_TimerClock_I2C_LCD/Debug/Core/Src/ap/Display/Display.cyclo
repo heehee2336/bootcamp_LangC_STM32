@@ -1,0 +1,8 @@
+../Core/Src/ap/Display/Display.c:21:6:Disp_init	1
+../Core/Src/ap/Display/Display.c:29:6:disp_setMode	2
+../Core/Src/ap/Display/Display.c:41:6:disp_setTimeClockTime	1
+../Core/Src/ap/Display/Display.c:47:6:Disp_setStopWatchTime	1
+../Core/Src/ap/Display/Display.c:54:6:disp_sw	2
+../Core/Src/ap/Display/Display.c:71:6:disp_timeClockTime	2
+../Core/Src/ap/Display/Display.c:88:6:disp_setStopWatchState	2
+../Core/Src/ap/Display/Display.c:101:6:disp_ISR	1

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;20261020_StopWatch_TimerClock_I2C_LCD/Core/Src/ap/display&apos; to &apos;Display&apos;" description="Rename resource &apos;display&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="Core/Src/ap/display" name="Display" stamp="1792463249199" updateReferences="true"/>
+</session>

@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Rename resource &apos;20261016_LED_Button/Core/Src/ap/ap.c&apos; to &apos;ap_main.c&apos;" description="Rename resource &apos;ap.c&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="Core/Src/ap/ap.c" name="ap_main.c" stamp="1792118255098" updateReferences="true"/>&#x0A;<refactoring comment="Rename resource &apos;20261016_LED_Button/Core/Src/ap/ap.h&apos; to &apos;ap_main.h&apos;" description="Rename resource &apos;ap.h&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="Core/Src/ap/ap.h" name="ap_main.h" stamp="1792118261945" updateReferences="true"/>
+</session>

@@ -1,0 +1,10 @@
+17:09:54 **** Incremental Build of configuration Debug for project 20261103_assignment ****
+make -j16 all 
+arm-none-eabi-size  20261103_assignment.elf 
+   text	   data	    bss	    dec	    hex	filename
+  11852	     12	   1892	  13756	   35bc	20261103_assignment.elf
+Finished building: default.size.stdout
+ 
+
+17:09:54 Build Finished. 0 errors, 0 warnings. (took 140ms)
+

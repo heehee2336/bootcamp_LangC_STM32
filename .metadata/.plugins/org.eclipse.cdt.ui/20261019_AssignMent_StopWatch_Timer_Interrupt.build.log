@@ -1,0 +1,10 @@
+10:34:54 **** Incremental Build of configuration Debug for project 20261019_AssignMent_StopWatch_Timer_Interrupt ****
+make -j16 all 
+arm-none-eabi-size  20261019_AssignMent_StopWatch_Timer_Interrupt.elf 
+   text	   data	    bss	    dec	    hex	filename
+  10416	     12	   1796	  12224	   2fc0	20261019_AssignMent_StopWatch_Timer_Interrupt.elf
+Finished building: default.size.stdout
+ 
+
+10:34:54 Build Finished. 0 errors, 0 warnings. (took 296ms)
+

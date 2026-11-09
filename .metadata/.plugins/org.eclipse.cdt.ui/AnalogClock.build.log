@@ -1,0 +1,10 @@
+17:09:54 **** Build of configuration Debug for project AnalogClock ****
+make -j16 all 
+arm-none-eabi-size  AnalogClock.elf 
+   text	   data	    bss	    dec	    hex	filename
+  21956	    140	   2340	  24436	   5f74	AnalogClock.elf
+Finished building: default.size.stdout
+ 
+
+17:09:54 Build Finished. 0 errors, 0 warnings. (took 295ms)
+

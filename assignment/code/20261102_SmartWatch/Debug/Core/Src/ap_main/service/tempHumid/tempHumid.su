@@ -1,0 +1,3 @@
+../Core/Src/ap_main/service/tempHumid/tempHumid.c:25:6:tempHumid_init	8	static
+../Core/Src/ap_main/service/tempHumid/tempHumid.c:29:13:tempHumid_disp	48	static
+../Core/Src/ap_main/service/tempHumid/tempHumid.c:35:6:tempHumid_task	8	static

@@ -1,0 +1,10 @@
+11:44:58 **** Incremental Build of configuration Debug for project 20261014_FND_UpCounter ****
+make -j16 all 
+arm-none-eabi-size  20261014_FND_UpCounter.elf 
+   text	   data	    bss	    dec	    hex	filename
+   7328	     12	   1572	   8912	   22d0	20261014_FND_UpCounter.elf
+Finished building: default.size.stdout
+ 
+
+11:44:58 Build Finished. 0 errors, 0 warnings. (took 194ms)
+

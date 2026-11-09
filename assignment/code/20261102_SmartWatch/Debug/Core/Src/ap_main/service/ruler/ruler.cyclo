@@ -1,0 +1,5 @@
+../Core/Src/ap_main/service/ruler/ruler.c:29:6:ruler_init	1
+../Core/Src/ap_main/service/ruler/ruler.c:34:13:ruler_request	2
+../Core/Src/ap_main/service/ruler/ruler.c:42:6:ruler_disp	1
+../Core/Src/ap_main/service/ruler/ruler.c:50:6:ruler_task	4
+../Core/Src/ap_main/service/ruler/ruler.c:69:6:ruler_ISR	1

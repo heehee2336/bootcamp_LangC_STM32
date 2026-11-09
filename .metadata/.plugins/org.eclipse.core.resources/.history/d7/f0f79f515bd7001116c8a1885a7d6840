@@ -1,0 +1,74 @@
+/*
+ * counter.c
+ *
+ *  Created on: 2026. 11. 3.
+ *      Author: kccistc
+ */
+
+#include "counter.h"
+#include "../../../driver/joyStick/joyStick.h"
+
+
+
+cordinate_XY speed;
+count_XY count_num;
+
+upmode_state state;
+
+void count_init(void)
+{
+	js_init();
+	Lcd_init(&hi2c1);
+}
+
+void count_task(void)
+{
+
+	switch(state)
+	{
+	case X_MODE:
+		if (cord_value.X_cord > 60)
+		{
+			count_num.count_X ++;
+			max = abs(50-count_num.count_X);
+		}
+		else if (cord_value.X_cord < 40)
+		{
+			count_num.count_X --;
+		}
+		break;
+	case Y_MODE:
+		if (cord_value.Y_cord > 60)
+		{
+			count_num.count_Y ++;
+		}
+		else if (cord_value.Y_cord <40)
+		{
+			count_num.count_Y --;
+		}
+		break;
+	case NOMAL :
+		count_X = 0;
+		count_Y = 0;
+		if (cord_value.X_cord > cord_value.Y_cord)
+			state = X_MODE;
+		else
+			state = Y_MODE;
+		break;
+	default :
+		break;
+	}
+	d = x_max * 10
+	HAL_Delay(d);
+	js_getValue(&cord_value);
+	sprintf(str,"X : %d %%", cord_value.X_cord);
+	//		printf("X : %d %%", cord_value.X_cord);
+	//		HAL_Delay(100);
+	Lcd_writeStringXY(0, 0, str);
+
+	js_getValue(&cord_value);
+	sprintf(str,"Y : %d %%", cord_value.Y_cord);
+	//		printf("Y : %d %%", cord_value.Y_cord);
+	//		HAL_Delay(100);
+	Lcd_writeStringXY(1, 0, str);
+}

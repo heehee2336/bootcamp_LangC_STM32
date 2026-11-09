@@ -1,0 +1,2 @@
+../Core/Src/driver/joyStick/joyStick.c:20:6:js_init	1
+../Core/Src/driver/joyStick/joyStick.c:25:6:js_getValue	3

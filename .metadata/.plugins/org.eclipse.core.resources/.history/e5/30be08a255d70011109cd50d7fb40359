@@ -1,0 +1,44 @@
+/*
+ * ap_main.c
+ *
+ *  Created on: 2026. 11. 3.
+ *      Author: kccistc
+ */
+
+#include "ap_main.h"
+#include "../driver/joyStick/joyStick.h"
+#include "../driver/lcd/lcd.h"
+#include <stdio.h>
+
+extern I2C_HandleTypeDef hi2c1;
+
+cordinate_XY cord_value;
+
+
+char str[30];
+
+void ap_init(void)
+{
+	js_init();
+	Lcd_init(&hi2c1);
+}
+
+void ap_main(void)
+{
+	ap_init();
+	while (1)
+	{
+		js_getValue(&cord_value);
+		sprintf(str,"X : %d %%\n", cord_value.X_cord);
+//		printf("X : %d %%", cord_value.X_cord);
+//		HAL_Delay(100);
+		Lcd_writeStringXY(0, 0, str);
+
+		js_getValue(&cord_value);
+		sprintf(str,"Y : %d %%\n..........................................................................................", cord_value.Y_cord);
+//		printf("Y : %d %%", cord_value.Y_cord);
+//		HAL_Delay(100);
+		Lcd_writeStringXY(1, 0, str);
+
+	}
+}

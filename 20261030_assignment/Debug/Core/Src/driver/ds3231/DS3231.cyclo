@@ -1,0 +1,9 @@
+../Core/Src/driver/ds3231/DS3231.c:21:16:bcd2bin	1
+../Core/Src/driver/ds3231/DS3231.c:26:16:bin2bcd	1
+../Core/Src/driver/ds3231/DS3231.c:31:6:ds3231_init	1
+../Core/Src/driver/ds3231/DS3231.c:36:6:ds3231_getTime	1
+../Core/Src/driver/ds3231/DS3231.c:51:6:ds3231_setTime	1
+../Core/Src/driver/ds3231/DS3231.c:63:6:ds3231_getDate	1
+../Core/Src/driver/ds3231/DS3231.c:79:6:ds3231_setDate	1
+../Core/Src/driver/ds3231/DS3231.c:90:6:ds3231_getDateTime	1
+../Core/Src/driver/ds3231/DS3231.c:111:6:ds3231_setDateTime	1

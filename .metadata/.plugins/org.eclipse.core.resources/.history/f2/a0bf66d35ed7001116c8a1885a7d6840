@@ -1,0 +1,95 @@
+/*
+ * counter.c
+ *
+ *  Created on: 2026. 11. 3.
+ *      Author: kccistc
+ */
+
+#include "counter.h"
+#include "../../../driver/joyStick/joyStick.h"
+#include <stdio.h>
+
+#define POS		1
+#define NEG		0
+
+cordinate_XY cord_value;
+
+count_XY countData;
+
+static typedef struct {
+	uint16_t x_abs;
+	uint8_t x_sign;
+	uint16_t y_abs;
+	uint8_t y_sign;
+} cordData_t;
+
+cordData_t cordData;
+
+upmode_state state;
+
+void count_init(void)
+{
+	js_init();
+	Lcd_init(&hi2c1);
+	cordData.x_abs = 0;
+	cordData.x_sign = 0;
+	cordData.y_abs = 0;
+	cordData.y_sign = 0;
+	countData.count_X = 0;
+	countData.count_Y = 0;
+
+}
+
+void count_getCordData(void) {
+	js_getValue(&cord_value);
+	cordData.x_abs = (cord_value.X_cord > 50) ? cord_value.X_cord - 50 : 50 - cord_value.X_cord;
+	cordData.x_sign = (cord_value.X_cord > 50) ? POS : NEG;
+	cordData.y_abs = (cord_value.Y_cord > 50) ? cord_value.Y_cord - 50 : 50 - cord_value.Y_cord;
+	cordData.y_sign = (cord_value.X_cord > 50) ? POS : NEG;
+}
+
+void count_task(void)
+{
+
+	switch(state)
+	{
+	case X_MODE:
+		if (cordData.x_sign == POS) {
+			count_num.count_X ++;
+			x_abs = (count_num.count_X > 50) ? count_num.count_X - 50 : 50 - count_num.count_X;
+		}
+		break;
+	case Y_MODE:
+		if (cord_value.Y_cord > 60 || cord_value.Y_cord < 40)
+		{
+			count_num.count_Y ++;
+		}
+		break;
+	case NOMAL :
+		count_getCordData();
+		if((cordData.x_abs > cordData.y_abs) && (cordData.x_abs > 10)) {
+			state  = X_MODE;
+		}
+		else if ((cordData.x_abs <= cordData.y_abs) && (cordData.y_abs > 10)) {
+			state  = Y_MODE;
+		}
+		break;
+	default :
+		break;
+	}
+
+	d = max * 100;
+	HAL_Delay(d);
+
+	js_getValue(&cord_value);
+	sprintf(str,"X : %d %%", cord_value.X_cord);
+	//		printf("X : %d %%", cord_value.X_cord);
+	//		HAL_Delay(100);
+	Lcd_writeStringXY(0, 0, str);
+
+	js_getValue(&cord_value);
+	sprintf(str,"Y : %d %%", cord_value.Y_cord);
+	//		printf("Y : %d %%", cord_value.Y_cord);
+	//		HAL_Delay(100);
+	Lcd_writeStringXY(1, 0, str);
+}

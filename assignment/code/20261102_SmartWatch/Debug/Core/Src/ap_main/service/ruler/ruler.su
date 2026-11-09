@@ -1,0 +1,5 @@
+../Core/Src/ap_main/service/ruler/ruler.c:29:6:ruler_init	16	static
+../Core/Src/ap_main/service/ruler/ruler.c:34:13:ruler_request	16	static
+../Core/Src/ap_main/service/ruler/ruler.c:42:6:ruler_disp	48	static
+../Core/Src/ap_main/service/ruler/ruler.c:50:6:ruler_task	16	static
+../Core/Src/ap_main/service/ruler/ruler.c:69:6:ruler_ISR	8	static

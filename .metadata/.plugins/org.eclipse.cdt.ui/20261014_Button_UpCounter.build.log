@@ -1,0 +1,10 @@
+11:44:58 **** Incremental Build of configuration Debug for project 20261014_Button_UpCounter ****
+make -j16 all 
+arm-none-eabi-size  20261014_Button_UpCounter.elf 
+   text	   data	    bss	    dec	    hex	filename
+   7524	     12	   1572	   9108	   2394	20261014_Button_UpCounter.elf
+Finished building: default.size.stdout
+ 
+
+11:44:58 Build Finished. 0 errors, 0 warnings. (took 209ms)
+

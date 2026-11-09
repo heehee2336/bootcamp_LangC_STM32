@@ -1,0 +1,25 @@
+/*
+ * led.c
+ *
+ *  Created on: 2026. 10. 16.
+ *      Author: kccistc
+ */
+
+#include "led.h"
+
+
+
+void led_on(const led_t * led)
+{
+	HAL_GPIO_WritePin(led -> GPIOx, led -> GPIO_PIN, GPIO_PIN_SET);
+}
+
+void led_off(const led_t *led)
+{
+	HAL_GPIO_WritePin(led -> GPIOx, led -> GPIO_PIN, GPIO_PIN_RESET);
+}
+
+void led_toggle(const led_t *led)
+{
+	HAL_GPIO_TogglePin(led -> GPIOx, led -> GPIO_PIN);
+}

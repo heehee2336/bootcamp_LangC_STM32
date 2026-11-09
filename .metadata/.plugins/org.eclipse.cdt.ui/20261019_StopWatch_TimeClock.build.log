@@ -1,0 +1,10 @@
+11:45:00 **** Incremental Build of configuration Debug for project 20261019_StopWatch_TimeClock ****
+make -j16 all 
+arm-none-eabi-size  20261019_StopWatch_TimeClock.elf 
+   text	   data	    bss	    dec	    hex	filename
+  11960	     12	   1876	  13848	   3618	20261019_StopWatch_TimeClock.elf
+Finished building: default.size.stdout
+ 
+
+11:45:00 Build Finished. 0 errors, 0 warnings. (took 195ms)
+

@@ -1,0 +1,10 @@
+11:44:59 **** Incremental Build of configuration Debug for project 20261016_UpCounter_StopWatch ****
+make -j16 all 
+arm-none-eabi-size  20261016_UpCounter_StopWatch.elf 
+   text	   data	    bss	    dec	    hex	filename
+  10628	     12	   1700	  12340	   3034	20261016_UpCounter_StopWatch.elf
+Finished building: default.size.stdout
+ 
+
+11:44:59 Build Finished. 0 errors, 0 warnings. (took 203ms)
+

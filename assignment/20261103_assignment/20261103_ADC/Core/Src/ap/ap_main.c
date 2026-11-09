@@ -1,0 +1,32 @@
+/*
+ * ap_main.c
+ *
+ *  Created on: 2026. 11. 3.
+ *      Author: kccistc
+ */
+
+#include "ap_main.h"
+#include "service/Counter/counter.h"
+#include <stdio.h>
+
+#include "stm32f4xx_hal.h"
+
+extern I2C_HandleTypeDef hi2c1;
+
+
+
+
+void ap_init(void)
+{
+	count_init();
+}
+
+void ap_main(void)
+{
+	ap_init();
+	while (1)
+	{
+		count_task();
+
+	}
+}

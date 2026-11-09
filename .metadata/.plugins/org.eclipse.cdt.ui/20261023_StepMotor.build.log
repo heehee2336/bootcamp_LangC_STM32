@@ -1,0 +1,10 @@
+15:05:18 **** Incremental Build of configuration Debug for project 20261023_StepMotor ****
+make -j16 all 
+arm-none-eabi-size  20261023_StepMotor.elf 
+   text	   data	    bss	    dec	    hex	filename
+   8972	     52	   1644	  10668	   29ac	20261023_StepMotor.elf
+Finished building: default.size.stdout
+ 
+
+15:05:18 Build Finished. 0 errors, 0 warnings. (took 249ms)
+

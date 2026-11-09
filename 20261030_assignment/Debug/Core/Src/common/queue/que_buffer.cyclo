@@ -1,0 +1,7 @@
+../Core/Src/common/queue/que_buffer.c:15:6:que_buf_init	1
+../Core/Src/common/queue/que_buffer.c:26:17:slot	1
+../Core/Src/common/queue/que_buffer.c:31:17:next	1
+../Core/Src/common/queue/que_buffer.c:36:6:que_put	2
+../Core/Src/common/queue/que_buffer.c:49:6:que_get	2
+../Core/Src/common/queue/que_buffer.c:60:6:que_is_empty	1
+../Core/Src/common/queue/que_buffer.c:65:6:que_is_full	1

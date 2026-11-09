@@ -1,0 +1,10 @@
+../Core/Src/ap/service/elevator/elevator.c:43:6:Elevator_init	1
+../Core/Src/ap/service/elevator/elevator.c:62:13:Elevator_setTargetFloor	6
+../Core/Src/ap/service/elevator/elevator.c:87:6:Elevator_ISR	1
+../Core/Src/ap/service/elevator/elevator.c:92:13:is_target_floor_Clear	1
+../Core/Src/ap/service/elevator/elevator.c:99:13:Elevator_normal_task	7
+../Core/Src/ap/service/elevator/elevator.c:135:13:Elevator_manual_operation	5
+../Core/Src/ap/service/elevator/elevator.c:167:13:Elevator_checkEmergency	2
+../Core/Src/ap/service/elevator/elevator.c:176:13:Elevator_escapeEmergency	2
+../Core/Src/ap/service/elevator/elevator.c:193:13:Elevator_emergency_task	6
+../Core/Src/ap/service/elevator/elevator.c:235:6:Elevator_task	3

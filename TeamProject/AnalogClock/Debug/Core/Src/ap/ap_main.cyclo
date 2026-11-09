@@ -1,0 +1,4 @@
+../Core/Src/ap/ap_main.c:23:13:ap_timeClockMode	2
+../Core/Src/ap/ap_main.c:37:13:ap_stopWatchMode	2
+../Core/Src/ap/ap_main.c:53:6:ap_init	1
+../Core/Src/ap/ap_main.c:66:6:ap_main	3

@@ -1,0 +1,4 @@
+../Core/Src/driver/uart_protocol/uart_protocol.c:25:6:UART_protocol_init	1
+../Core/Src/driver/uart_protocol/uart_protocol.c:33:13:rx_parse_byte	11
+../Core/Src/driver/uart_protocol/uart_protocol.c:78:6:UART_protocol_send	2
+../Core/Src/driver/uart_protocol/uart_protocol.c:99:6:HAL_UART_RxCpltCallback	2

@@ -1,0 +1,10 @@
+11:45:02 **** Incremental Build of configuration Debug for project 20261028_DHT_HCSR04 ****
+make -j16 all 
+arm-none-eabi-size  20261028_DHT_HCSR04.elf 
+   text	   data	    bss	    dec	    hex	filename
+   9420	     12	   1796	  11228	   2bdc	20261028_DHT_HCSR04.elf
+Finished building: default.size.stdout
+ 
+
+11:45:03 Build Finished. 0 errors, 0 warnings. (took 199ms)
+

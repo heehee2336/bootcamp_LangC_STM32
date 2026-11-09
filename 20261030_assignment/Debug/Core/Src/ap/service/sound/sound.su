@@ -1,0 +1,6 @@
+../Core/Src/ap/service/sound/sound.c:124:6:sound_init	8	static
+../Core/Src/ap/service/sound/sound.c:128:6:sound_power	8	static
+../Core/Src/ap/service/sound/sound.c:141:6:sound_date	8	static
+../Core/Src/ap/service/sound/sound.c:154:6:sound_hcsr04	8	static
+../Core/Src/ap/service/sound/sound.c:165:6:sound_dht11	8	static
+../Core/Src/ap/service/sound/sound.c:175:6:sound_SW	8	static

@@ -1,0 +1,6 @@
+../Core/Src/ap_main/service/timeClock/timeClock.c:30:6:timeClock_setDateFirstFlag	1
+../Core/Src/ap_main/service/timeClock/timeClock.c:35:6:timeClock_init	1
+../Core/Src/ap_main/service/timeClock/timeClock.c:43:13:timeClock_dispTime	1
+../Core/Src/ap_main/service/timeClock/timeClock.c:49:13:timeClock_dispDate	1
+../Core/Src/ap_main/service/timeClock/timeClock.c:59:6:timeClock_task	2
+../Core/Src/ap_main/service/timeClock/timeClock.c:72:6:timeClock_calendar_task	2

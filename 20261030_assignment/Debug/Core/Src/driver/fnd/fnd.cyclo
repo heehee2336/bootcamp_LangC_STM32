@@ -1,0 +1,8 @@
+../Core/Src/driver/fnd/fnd.c:27:6:fnd_set_dp	2
+../Core/Src/driver/fnd/fnd.c:38:10:fnd_get_dp	1
+../Core/Src/driver/fnd/fnd.c:43:6:fnd_set_num	1
+../Core/Src/driver/fnd/fnd.c:48:10:fnd_get_num	1
+../Core/Src/driver/fnd/fnd.c:53:13:fnd_all_off	1
+../Core/Src/driver/fnd/fnd.c:61:13:fnd_sel_digit	5
+../Core/Src/driver/fnd/fnd.c:92:13:fnd_disp_number	2
+../Core/Src/driver/fnd/fnd.c:125:6:fnd_show_number	13

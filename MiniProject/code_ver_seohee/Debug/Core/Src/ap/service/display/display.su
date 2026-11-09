@@ -1,0 +1,5 @@
+../Core/Src/ap/service/display/display.c:29:6:disp_init	40	static
+../Core/Src/ap/service/display/display.c:38:6:disp_tempHumid	48	static
+../Core/Src/ap/service/display/display.c:54:6:disp_distance	48	static
+../Core/Src/ap/service/display/display.c:66:6:disp_joyStick	48	static
+../Core/Src/ap/service/display/display.c:76:6:disp_task	80	static

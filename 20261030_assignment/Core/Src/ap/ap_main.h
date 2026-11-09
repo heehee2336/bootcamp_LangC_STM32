@@ -1,0 +1,17 @@
+/*
+ * ap_main.h
+ *
+ *  Created on: 2026. 10. 30.
+ *      Author: kccistc
+ */
+
+#ifndef SRC_AP_AP_MAIN_H_
+#define SRC_AP_AP_MAIN_H_
+
+#include "stm32f4xx_hal.h"
+#include <stdint.h>
+
+int ap_main(void);
+void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim);
+
+#endif /* SRC_AP_AP_MAIN_H_ */

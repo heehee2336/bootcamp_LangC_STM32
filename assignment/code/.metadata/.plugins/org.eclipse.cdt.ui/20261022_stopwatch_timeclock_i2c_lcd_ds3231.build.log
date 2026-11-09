@@ -1,0 +1,10 @@
+19:26:12 **** Incremental Build of configuration Debug for project 20261022_stopwatch_timeclock_i2c_lcd_ds3231 ****
+make -j16 all 
+arm-none-eabi-size  20261022_stopwatch_timeclock_i2c_lcd_ds3231.elf 
+   text	   data	    bss	    dec	    hex	filename
+  23308	    100	   2412	  25820	   64dc	20261022_stopwatch_timeclock_i2c_lcd_ds3231.elf
+Finished building: default.size.stdout
+ 
+
+19:26:12 Build Finished. 0 errors, 0 warnings. (took 193ms)
+

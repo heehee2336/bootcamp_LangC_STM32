@@ -1,0 +1,21 @@
+/*
+ * led.h
+ *
+ *  Created on: 2026. 10. 16.
+ *      Author: kccistc
+ */
+#include "stm32f4xx_hal.h"
+
+#ifndef SRC_DRIVER_LED_LED_H_
+#define SRC_DRIVER_LED_LED_H_
+
+typedef struct {
+	GPIO_TypeDef* GPIOx;
+	uint16_t GPIO_PIN;
+} led_t;
+
+void led_on(const led_t * led);
+void led_off(const led_t * led);
+void led_toggle(const led_t * led);
+
+#endif /* SRC_DRIVER_LED_LED_H_ */

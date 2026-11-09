@@ -1,0 +1,2 @@
+../Core/Src/ap_main/service/inputEvent/inputEvent.c:14:6:inputEvent_init	1
+../Core/Src/ap_main/service/inputEvent/inputEvent.c:19:6:inputEvent_task	3
