@@ -1,0 +1,34 @@
+/*
+ * led.h
+ *
+ *  Created on: 2026. 11. 9.
+ *      Author: kccistc
+ */
+
+#ifndef SRC_AP_SERVICE_LED_LED_H_
+#define SRC_AP_SERVICE_LED_LED_H_
+
+#include <stdint.h>
+#include "stm32f4xx_hal.h"
+
+#define LED_EMERGENCY		GPIOC
+#define LED_EMERGENCY_PIN 	GPIO_PIN_4
+#define LED_FLOOR_1			GPIOB
+#define LED_FLOOR_1_PIN 	GPIO_PIN_13
+#define LED_FLOOR_2			GPIOB
+#define LED_FLOOR_2_PIN 	GPIO_PIN_14
+#define LED_FLOOR_3			GPIOB
+#define LED_FLOOR_3_PIN 	GPIO_PIN_15
+
+typedef struct {
+	GPIO_TypeDef* GPIOx;
+	uint16_t GPIO_Pin;
+} led_t;
+
+void led_init(led_t *led, GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin);
+void led_allOff(void);
+void led_emergencyState(void);
+void led_normalState(led_t *floor);
+void led_moveState(void);
+
+#endif /* SRC_AP_SERVICE_LED_LED_H_ */

@@ -1,0 +1,6 @@
+../Core/Src/ap/ap_main.c:29:13:ap_trackTimeChanges	6
+../Core/Src/ap/ap_main.c:60:9:ap_takeTimeChangeEvents	1
+../Core/Src/ap/ap_main.c:67:13:ap_timeClockMode	2
+../Core/Src/ap/ap_main.c:87:13:ap_stopWatchMode	2
+../Core/Src/ap/ap_main.c:110:6:ap_init	1
+../Core/Src/ap/ap_main.c:123:6:ap_main	6

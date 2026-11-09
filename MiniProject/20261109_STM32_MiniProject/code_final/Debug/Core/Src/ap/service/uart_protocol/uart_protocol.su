@@ -1,0 +1,6 @@
+../Core/Src/ap/service/uart_protocol/uart_protocol.c:35:13:proto_send	40	static
+../Core/Src/ap/service/uart_protocol/uart_protocol.c:52:13:proto_sendResult	16	static
+../Core/Src/ap/service/uart_protocol/uart_protocol.c:57:13:proto_sendStatus	40	static
+../Core/Src/ap/service/uart_protocol/uart_protocol.c:86:13:proto_handle	24	static
+../Core/Src/ap/service/uart_protocol/uart_protocol.c:132:6:uartProto_init	8	static
+../Core/Src/ap/service/uart_protocol/uart_protocol.c:138:6:uartProto_task	16	static

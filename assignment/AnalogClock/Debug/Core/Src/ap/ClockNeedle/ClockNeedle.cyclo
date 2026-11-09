@@ -1,0 +1,2 @@
+../Core/Src/ap/ClockNeedle/ClockNeedle.c:16:6:ClockNeedle_init	1
+../Core/Src/ap/ClockNeedle/ClockNeedle.c:21:6:ClockNeedle_ISR	1

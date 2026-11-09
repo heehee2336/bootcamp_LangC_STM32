@@ -1,0 +1,8 @@
+../Core/Src/ap/service/display/display.c:36:6:disp_init	1
+../Core/Src/ap/service/display/display.c:45:6:disp_tempHumid	2
+../Core/Src/ap/service/display/display.c:62:6:disp_distance	3
+../Core/Src/ap/service/display/display.c:83:6:disp_emergency	5
+../Core/Src/ap/service/display/display.c:113:6:disp_exitEmergency	1
+../Core/Src/ap/service/display/display.c:121:6:disp_enterEmergency	1
+../Core/Src/ap/service/display/display.c:126:6:disp_joyStick	1
+../Core/Src/ap/service/display/display.c:140:6:disp_task	6

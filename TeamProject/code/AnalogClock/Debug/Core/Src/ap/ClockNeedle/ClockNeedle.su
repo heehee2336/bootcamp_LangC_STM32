@@ -1,0 +1,6 @@
+../Core/Src/ap/ClockNeedle/ClockNeedle.c:52:13:ClockNeedle_requestStep	24	static
+../Core/Src/ap/ClockNeedle/ClockNeedle.c:62:6:ClockNeedle_init	8	static
+../Core/Src/ap/ClockNeedle/ClockNeedle.c:67:6:ClockNeedle_ISR	8	static
+../Core/Src/ap/ClockNeedle/ClockNeedle.c:85:6:ClockNeedle_SecStep	8	static
+../Core/Src/ap/ClockNeedle/ClockNeedle.c:90:6:ClockNeedle_MinStep	8	static
+../Core/Src/ap/ClockNeedle/ClockNeedle.c:95:6:ClockNeedle_HourStep	8	static

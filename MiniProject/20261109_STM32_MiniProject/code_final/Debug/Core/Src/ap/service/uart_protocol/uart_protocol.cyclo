@@ -1,0 +1,6 @@
+../Core/Src/ap/service/uart_protocol/uart_protocol.c:35:13:proto_send	2
+../Core/Src/ap/service/uart_protocol/uart_protocol.c:52:13:proto_sendResult	1
+../Core/Src/ap/service/uart_protocol/uart_protocol.c:57:13:proto_sendStatus	2
+../Core/Src/ap/service/uart_protocol/uart_protocol.c:86:13:proto_handle	13
+../Core/Src/ap/service/uart_protocol/uart_protocol.c:132:6:uartProto_init	1
+../Core/Src/ap/service/uart_protocol/uart_protocol.c:138:6:uartProto_task	15

@@ -1,0 +1,5 @@
+../Core/Src/driver/uart/uart.c:15:6:uart_init	16	static
+../Core/Src/driver/uart/uart.c:23:6:uart_read	16	static
+../Core/Src/driver/uart/uart.c:33:6:uart_write	16	static
+../Core/Src/driver/uart/uart.c:39:6:HAL_UART_RxCpltCallback	24	static
+../Core/Src/driver/uart/uart.c:53:6:HAL_UART_ErrorCallback	16	static

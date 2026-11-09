@@ -1,0 +1,5 @@
+../Core/Src/ap/TimeClock/TimeClock.c:16:6:TimeClock_init	8	static
+../Core/Src/ap/TimeClock/TimeClock.c:25:6:TimeClock_inMSec	4	static
+../Core/Src/ap/TimeClock/TimeClock.c:50:13:TimeClock_dispTime	16	static
+../Core/Src/ap/TimeClock/TimeClock.c:64:6:TimeClock_ISR	8	static
+../Core/Src/ap/TimeClock/TimeClock.c:69:6:TimeClock_task	8	static

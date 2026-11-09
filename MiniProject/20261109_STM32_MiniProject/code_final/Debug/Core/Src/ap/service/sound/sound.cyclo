@@ -1,0 +1,5 @@
+../Core/Src/ap/service/sound/sound.c:124:6:sound_init	1
+../Core/Src/ap/service/sound/sound.c:128:6:sound_normal_arriving	1
+../Core/Src/ap/service/sound/sound.c:137:6:sound_normal_rising	1
+../Core/Src/ap/service/sound/sound.c:146:6:sound_normal_falling	1
+../Core/Src/ap/service/sound/sound.c:155:6:sound_emergency	1

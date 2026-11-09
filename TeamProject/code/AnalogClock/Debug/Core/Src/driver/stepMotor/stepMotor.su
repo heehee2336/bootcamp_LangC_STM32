@@ -1,0 +1,8 @@
+../Core/Src/driver/stepMotor/stepMotor.c:52:13:StepMotor_writePattern	24	static
+../Core/Src/driver/stepMotor/stepMotor.c:59:6:StepMotor_stepPhase	16	static
+../Core/Src/driver/stepMotor/stepMotor.c:68:6:StepMotor_release	16	static
+../Core/Src/driver/stepMotor/stepMotor.c:72:6:motor_button_init	8	static
+../Core/Src/driver/stepMotor/stepMotor.c:78:6:sec_motor_align	16	static
+../Core/Src/driver/stepMotor/stepMotor.c:92:6:min_motor_align	16	static
+../Core/Src/driver/stepMotor/stepMotor.c:106:6:hour_motor_align	16	static
+../Core/Src/driver/stepMotor/stepMotor.c:121:6:StepMotor_task	8	static

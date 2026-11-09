@@ -1,0 +1,160 @@
+/* 엘리베이터 컨트롤 패널 · 몽환 파스텔 하늘 테마 (Nucleo 컨트롤 패널과 같은 템플릿)
+   색: 남색 #2a0b8a, 연보라 글자 #5a46a8, 파랑 #1a45bd, 하늘색 #17d3e8 / #a9eef7, LED 빨강 #ff2e55 */
+
+* {
+    font-family: "IBM Plex Sans KR", "Malgun Gothic", sans-serif;
+    font-size: 14px;
+    color: #2a0b8a;
+}
+
+QScrollArea#scroll, QWidget#content { background: transparent; }
+
+QScrollBar:vertical { background: transparent; width: 12px; margin: 4px; }
+QScrollBar::handle:vertical { background: rgba(42, 11, 138, 0.35); border-radius: 4px; min-height: 40px; }
+QScrollBar::handle:vertical:hover { background: rgba(42, 11, 138, 0.6); }
+QScrollBar::add-line, QScrollBar::sub-line { height: 0; width: 0; }
+QScrollBar::add-page, QScrollBar::sub-page { background: transparent; }
+QScrollBar:horizontal { background: transparent; height: 12px; margin: 4px; }
+QScrollBar::handle:horizontal { background: rgba(42, 11, 138, 0.35); border-radius: 4px; min-width: 40px; }
+
+/* ---------- 카드: 남색 / 흰색 / 남색 세 겹 테두리 ---------- */
+QFrame#cardOuter {
+    background: #ffffff;
+    border: 3px solid #2a0b8a;
+    border-radius: 22px;
+}
+QFrame#card {
+    background: rgba(255, 255, 255, 0.95);
+    border: 3px solid #2a0b8a;
+    border-radius: 16px;
+}
+QFrame#card QLabel { background: transparent; border: none; }
+
+QLabel#cardTitle { font-family: "Black Han Sans"; font-size: 21px; }
+QLabel#cardSub, QLabel#meta { font-size: 12px; color: #5a46a8; }
+QLabel#metaValue { font-family: "JetBrains Mono"; font-size: 12px; font-weight: 600; }
+QLabel#note {
+    font-size: 12px; color: #5a46a8;
+    background: rgba(255, 255, 255, 0.92);
+    border: 2px dashed #5a46a8; border-radius: 13px;
+    padding: 4px 12px;
+}
+
+/* ---------- 연결 영역 ---------- */
+QLabel#connTitle { font-size: 17px; font-weight: 700; }
+QLabel#connSub { font-family: "JetBrains Mono", "IBM Plex Sans KR"; font-size: 12px; color: #5a46a8; }
+
+/* ---------- 버튼 ---------- */
+QPushButton#primary {
+    font-family: "Black Han Sans"; font-size: 17px;
+    color: #ffffff; background: #1a45bd;
+    border: 3px solid #2a0b8a; border-radius: 12px;
+    border-bottom-width: 6px; border-right-width: 6px;   /* 입체 그림자 느낌 */
+    padding: 7px 20px;
+}
+QPushButton#primary:hover { background: #2556dc; }
+QPushButton#primary:pressed { border-bottom-width: 3px; border-right-width: 3px; padding: 9px 18px 7px 22px; }
+QPushButton#primary:disabled {
+    color: #f4f0fc; background: #c9bfe6; border-color: #9d90cc;
+}
+QPushButton#primary[danger="true"] { color: #2a0b8a; background: #ffffff; }
+QPushButton#primary[danger="true"]:hover { background: #ece3fa; }
+QPushButton#primary:focus { outline: none; border-color: #17d3e8; }
+
+QPushButton#ghost {
+    font-size: 12px; font-weight: 500;
+    background: transparent;
+    border: 2px dashed #5a46a8; border-radius: 13px;
+    padding: 4px 12px;
+}
+QPushButton#ghost:hover { background: #ece3fa; }
+
+/* ---------- 자동/수동 선택 ---------- */
+QFrame#seg { background: #ffffff; border: 3px solid #2a0b8a; border-radius: 12px; }
+QPushButton#segButton {
+    font-size: 12px; font-weight: 700;
+    background: transparent; border: none; border-radius: 8px;
+    padding: 5px 14px; margin: 1px;
+}
+QPushButton#segButton:checked { background: #2a0b8a; color: #ffffff; }
+QPushButton#segButton:hover:!checked { background: #ece3fa; }
+
+/* ---------- 엘리베이터 ---------- */
+QLabel#floorValue { font-family: "Black Han Sans"; font-size: 44px; }
+QLabel#actionValue { font-size: 14px; font-weight: 700; }
+QLabel#section { font-size: 12px; font-weight: 700; color: #5a46a8; }
+QFrame#divider { background: #ece3fa; border: none; border-radius: 1px; }
+
+/* 층 호출 버튼 */
+QPushButton#floor {
+    font-family: "Black Han Sans"; font-size: 24px;
+    color: #2a0b8a; background: #ffffff;
+    border: 3px solid #2a0b8a; border-radius: 14px;
+    border-bottom-width: 6px; border-right-width: 6px;
+    padding: 10px 0; min-height: 34px;
+}
+QPushButton#floor:hover { background: #a9eef7; }
+QPushButton#floor:pressed { border-bottom-width: 3px; border-right-width: 3px; }
+QPushButton#floor:checked { background: #17d3e8; color: #2a0b8a; }
+QPushButton#floor:disabled { color: #b8acdf; background: #f4f0fc; border-color: #c9bfe6; }
+QPushButton#floor:checked:disabled { color: #2a0b8a; background: #a9eef7; border-color: #2a0b8a; }
+
+/* EMERGENCY 전환 버튼 */
+QPushButton#danger {
+    font-family: "Black Han Sans"; font-size: 17px;
+    color: #ffffff; background: #ff2e55;
+    border: 3px solid #2a0b8a; border-radius: 12px;
+    border-bottom-width: 6px; border-right-width: 6px;
+    padding: 7px 20px;
+}
+QPushButton#danger:hover { background: #ff5577; }
+QPushButton#danger:pressed { border-bottom-width: 3px; border-right-width: 3px; }
+QPushButton#danger:disabled { color: #f4f0fc; background: #e7c3d3; border-color: #c9a9c9; }
+
+/* 수동 상승/하강 (누르고 있는 동안) */
+QPushButton#move {
+    font-family: "Black Han Sans"; font-size: 20px;
+    color: #2a0b8a; background: #ffffff;
+    border: 3px solid #2a0b8a; border-radius: 14px;
+    border-bottom-width: 6px; border-right-width: 6px;
+    padding: 14px 0;
+}
+QPushButton#move:hover { background: #ece3fa; }
+QPushButton#move:pressed, QPushButton#move[active="true"] {
+    background: #17d3e8; border-bottom-width: 3px; border-right-width: 3px;
+}
+QPushButton#move:disabled { color: #b8acdf; background: #f4f0fc; border-color: #c9bfe6; }
+
+/* ---------- 센서 값 ---------- */
+QFrame#reading {
+    background: qlineargradient(x1:0, y1:0, x2:1, y2:1, stop:0 #ffffff, stop:1 #f1fbfe);
+    border: 2px solid #17d3e8; border-radius: 14px;
+}
+QLabel#readingLabel { font-size: 12px; font-weight: 500; color: #5a46a8; }
+QLabel#readingValue { font-family: "Black Han Sans"; font-size: 34px; }
+QLabel#readingMono { font-family: "JetBrains Mono"; font-size: 26px; }
+QLabel#readingUnit { font-size: 15px; font-weight: 700; padding-bottom: 6px; }
+
+QProgressBar#cool { background: #ece3fa; border: 2px solid #2a0b8a; border-radius: 6px; }
+QProgressBar#cool::chunk { background: #17d3e8; border-radius: 3px; }
+
+/* ---------- 로그 ---------- */
+QCheckBox#filter {
+    font-size: 12px; font-weight: 700; color: #5a46a8;
+    background: #ffffff; border: 2px solid #2a0b8a; border-radius: 14px;
+    padding: 4px 12px 4px 8px; spacing: 6px;
+}
+QCheckBox#filter:checked { background: #a9eef7; color: #2a0b8a; }
+QCheckBox#filter::indicator {
+    width: 10px; height: 10px; border: 2px solid #2a0b8a; border-radius: 3px; background: #ffffff;
+}
+QCheckBox#filter::indicator:checked { background: #2a0b8a; }
+
+QPlainTextEdit#log {
+    font-family: "JetBrains Mono", "IBM Plex Sans KR", monospace;
+    font-size: 12px;
+    background: #faf7ff;
+    border: 2px solid #2a0b8a; border-radius: 12px;
+    padding: 6px;
+    selection-background-color: #a9eef7; selection-color: #2a0b8a;
+}
